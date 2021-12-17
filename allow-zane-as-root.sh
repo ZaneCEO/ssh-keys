@@ -16,4 +16,3 @@ sudo chmod u=rwx,go= /root/.ssh/ -R
 chmod u=rw,go= /root/.ssh/*
 
 echo -e "\e[1;31m ✔️ DONE \e[0m"
-
