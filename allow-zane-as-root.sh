@@ -1,5 +1,5 @@
 #!/bin/bash
-## 
+## https://github.com/ZaneCEO/ssh-keys
 
 echo ""
 echo -e "\e[1;31m 🔑 Allowing Zane to connect via SSH as root... \e[0m"
