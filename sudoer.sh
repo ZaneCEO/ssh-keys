@@ -7,3 +7,5 @@ sudo apt install curl -y
 sudo curl -Lo ${ZANE_SUDOER_FILE} https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer
 sudo chown root:root ${ZANE_SUDOER_FILE}
 chmod u=rw,go=r ${ZANE_SUDOER_FILE}
+
+ls -l $(dirname ${ZANE_SUDOER_FILE})
