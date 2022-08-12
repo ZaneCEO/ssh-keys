@@ -1,4 +1,4 @@
 ##
-# sudo apt install curl -y && curl -Lo /etc/sudoers.d/zane https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer
+# sudo apt install curl -y && sudo curl -Lo /etc/sudoers.d/zane https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer && sudo chown root:root /etc/sudoers.d/zane && chmod u=rw,go=r /etc/sudoers.d/zane
 zane ALL=(ALL) NOPASSWD: ALL
 zanegiaN ALL=(ALL) NOPASSWD: ALL
