@@ -4,15 +4,17 @@
 echo ""
 echo -e "\e[1;31m ⚠️ Allowing Zane to sudo \e[0m"
 
-ZANE_SUDOER_FILE=/etc/sudoers.d/zane
+if [ -z $(command -v curl) ]; then sudo apt update && sudo apt install curl -y; fi
 
-sudo apt update
-sudo apt install curl -y
+ZANE_SUDOER_FILE=/etc/sudoers.d/zane
 sudo curl -Lo ${ZANE_SUDOER_FILE} https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer
 sudo chown root:root ${ZANE_SUDOER_FILE}
 chmod u=rw,go=r ${ZANE_SUDOER_FILE}
 
+echo ""
 ls -l $(dirname ${ZANE_SUDOER_FILE})
+
+echo ""
 cat ${ZANE_SUDOER_FILE}
 
 echo ""
