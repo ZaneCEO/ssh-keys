@@ -36,6 +36,8 @@ curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zan
 
 fxTitle "Result"
 ls -la /root/.ssh
+echo ""
+echo ""
 cat /root/.ssh/authorized_keys
 
 fxEndFooter
