@@ -1,19 +1,37 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ## https://github.com/ZaneCEO/ssh-keys
-
 echo ""
-echo -e "\e[1;31m 🔑 Allowing Zane to connect via SSH as root... \e[0m"
 
-sudo mkdir /root/.ssh
+## bash-fx
+if [ -z $(command -v curl) ]; then sudo apt update && sudo apt install curl -y; fi
 
+if [ -f "/usr/local/turbolab.it/bash-fx/bash-fx.sh" ]; then
+  source "/usr/local/turbolab.it/bash-fx/bash-fx.sh"
+else
+  source <(curl -s https://raw.githubusercontent.com/TurboLabIt/bash-fx/main/bash-fx.sh)
+fi
+## bash-fx is ready
+
+fxHeader "🔑 Allow Zane to connect via SSH as root"
+rootCheck
+
+fxTitle "Creating .ssh directory..."
+mkdir -p /root/.ssh
+
+fxTitle "Fixing permissions..."
+chown root:root /root/.ssh
+chmod u=rwx,go= /root/.ssh
+
+fxTitle "Preparing the authorized_keys file..."
 if [ -f /root/.ssh/authorized_keys ]; then
-  sudo echo "" >> /root/.ssh/authorized_keys
+  echo "" >> /root/.ssh/authorized_keys
 fi
 
-sudo curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> /root/.ssh/authorized_keys
-sudo chown root:root /root/.ssh/ -R
-sudo chmod u=rwx,go= /root/.ssh/ -R
-chmod u=rw,go= /root/.ssh/*
+fxTitle "Adding Zane's keys to thee authorized_keys file..."
+curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> /root/.ssh/authorized_keys
 
-echo -e "\e[1;31m ✔️ DONE \e[0m"
+fxTitle "Result"
+ls -la /root/.ssh
+cat /root/.ssh/authorized_keys
 
+fxEndFooter
