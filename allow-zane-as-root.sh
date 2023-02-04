@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
+### Authorize Zane to SSH as root
 ## https://github.com/ZaneCEO/ssh-keys
+#
+# sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-root.sh?$(date +%s) | sudo bash
+# 
 echo ""
 
 ## bash-fx
@@ -12,7 +16,7 @@ else
 fi
 ## bash-fx is ready
 
-fxHeader "🔑 Allow Zane to connect via SSH as root"
+fxHeader "🔑 Allow Zane to SSH as root"
 rootCheck
 
 fxTitle "Creating .ssh directory..."
