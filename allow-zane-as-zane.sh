@@ -28,7 +28,7 @@ fi
 curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh?$(date +%s) | bash
 
 
-## ssh key
+fxTitle "🔏 Authorizing Zane's SSH key(s)..."
 SSH_DIR=/home/zane/.ssh/
 sudo -u zane -H mkdir ${SSH_DIR}
 sudo -u zane -H curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> ${SSH_DIR}authorized_keys
