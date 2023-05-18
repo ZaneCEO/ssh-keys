@@ -22,22 +22,14 @@ rootCheck
 fxTitle "Creating .ssh directory..."
 mkdir -p /root/.ssh
 
-fxTitle "Fixing permissions..."
-chown root:root /root/.ssh
-chmod u=rwx,go= /root/.ssh
-
 fxTitle "Preparing the authorized_keys file..."
 if [ -f /root/.ssh/authorized_keys ]; then
   echo "" >> /root/.ssh/authorized_keys
 fi
 
-fxTitle "Adding Zane's keys to thee authorized_keys file..."
+fxTitle "Adding Zane's keys to the authorized_keys file..."
 curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> /root/.ssh/authorized_keys
 
-fxTitle "Result"
-ls -la /root/.ssh
-echo ""
-echo ""
-cat /root/.ssh/authorized_keys
+fxSshResetUserSshPermissions "root"
 
 fxEndFooter
