@@ -30,11 +30,9 @@ curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh?$(date
 
 fxTitle "🔏 Authorizing Zane's SSH key(s)..."
 SSH_DIR=/home/zane/.ssh/
-sudo -u zane -H mkdir ${SSH_DIR}
-sudo -u zane -H curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> ${SSH_DIR}authorized_keys
-sudo chown zane ${SSH_DIR} -R
-sudo chmod u=rwx,go= ${SSH_DIR} -R
-sudo chmod u=rw,go= ${SSH_DIR}*
+mkdir ${SSH_DIR}
+curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> ${SSH_DIR}authorized_keys
+fxSshResetUserSshPermissions "zane"
 
 
 fxEndFooter
