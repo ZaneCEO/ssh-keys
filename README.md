@@ -3,7 +3,7 @@
 Do you need to let me access your Linux server? Just run this script! It will create a `zane` user account and authorize my SSH key:
 
 ````bash
-sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-zane.sh?$(date +%s) | sudo bash
+sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-zane.sh | sudo bash
 
 ````
 
@@ -18,7 +18,7 @@ The following command will authorize my SSH key to connect to the `root` account
 It's a security hazard and I don't like it, so please prefer the previous command whenever possible.
 
 ````bash
-sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-root.sh?$(date +%s) | sudo bash
+sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-root.sh | sudo bash
 
 ````
 
@@ -29,6 +29,6 @@ sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ss
 If you created the `zane` user account manually, without the suggested script, please run this to allow me to `sudo` without going insane.
 
 ````bash
-sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh?$(date +%s) | sudo bash
+sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh | sudo bash
 
 ````
