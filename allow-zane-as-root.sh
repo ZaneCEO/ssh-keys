@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-### Authorize Zane to SSH as root
-## https://github.com/ZaneCEO/ssh-keys
-#
-# sudo apt install curl -y && curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/allow-zane-as-root.sh?$(date +%s) | sudo bash
-# 
-echo ""
 
 ## bash-fx
 if [ -z $(command -v curl) ]; then sudo apt update && sudo apt install curl -y; fi
@@ -28,8 +22,7 @@ if [ -f /root/.ssh/authorized_keys ]; then
 fi
 
 fxTitle "Adding Zane's keys to the authorized_keys file..."
-curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> /root/.ssh/authorized_keys
-
+curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane >> /root/.ssh/authorized_keys
 fxSshResetUserSshPermissions "root"
 
 fxEndFooter
