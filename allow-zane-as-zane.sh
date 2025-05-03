@@ -25,13 +25,13 @@ fi
 
 
 ## allow sudo
-curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh?$(date +%s) | bash
+curl -s https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/sudoer.sh | bash
 
 
 fxTitle "🔏 Authorizing Zane's SSH key(s)..."
 SSH_DIR=/home/zane/.ssh/
 mkdir -p ${SSH_DIR}
-curl https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane?$(date +%s) >> ${SSH_DIR}authorized_keys
+curl -Lo ${SSH_DIR}authorized_keys https://raw.githubusercontent.com/ZaneCEO/ssh-keys/main/authorized_keys_zane
 fxSshResetUserSshPermissions "zane"
 
 
